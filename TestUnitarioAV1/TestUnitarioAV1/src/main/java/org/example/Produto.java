@@ -9,6 +9,9 @@ public class Produto {
         if(preco < 0){
             throw new IllegalArgumentException("O preço não deve ser negativo!");
         }
+        if (estoque < 0) {
+            throw new IllegalArgumentException("O estoque não deve ser negativo!");
+        }
         this.nome = nome;
         this.preco = preco;
         this.estoque = estoque;
@@ -34,10 +37,14 @@ public class Produto {
     }
 
     public int getEstoque() {
+
         return estoque;
     }
 
     public void setEstoque(int estoque) {
+        if (estoque < 0) {
+            throw new IllegalArgumentException("O estoque não deve ser negativo!");
+        }
         this.estoque = estoque;
     }
 
