@@ -47,4 +47,23 @@ public class ProdutoTest {
 
         assertEquals(8, produto.getPreco());
     }
+    @Test
+    public void AlterarEstoquePositivo() {
+        Produto produto = new Produto("Mel", 5.0, 10);
+        produto.setEstoque(20);
+
+        assertEquals(20, produto.getEstoque());
+    }
+
+    @Test
+    public void AlterarParaPrecoNegativo(){
+        Produto produto = new Produto("Sabonete", 5.0, 10);
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            produto.setPreco(-3.0);
+        });
+
+        assertEquals("O preço não deve ser negativo!", exception.getMessage());
+    }
+
 }
