@@ -6,6 +6,9 @@ public class Venda {
     private double totalVenda;
 
     public Venda(Produto produto, int quantidadeVendida) {
+        if (quantidadeVendida < 0) {
+            throw new IllegalArgumentException("Quantidade de venda não pode ser negativa!");
+        }
         this.produto = produto;
         this.quantidadeVendida = quantidadeVendida;
     }
