@@ -39,4 +39,14 @@ public class VendaTest {
         assertEquals(5, produto.getEstoque());
         assertEquals(0.0, venda.getTotalVenda());
     }
+    @Test
+    public void CalculoTotalVenda(){
+        Produto produto = new Produto("Melzinho", 5.5, 10);
+        Venda venda = new Venda(produto, 4);
+
+        boolean sucesso = venda.realizarVenda();
+
+        assertTrue(sucesso);
+        assertEquals(22, venda.getTotalVenda());
+    }
 }
